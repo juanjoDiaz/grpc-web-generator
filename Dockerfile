@@ -31,6 +31,7 @@ RUN rm -rf /github
 
 ## Create the gRPC client
 ENV import_style=commonjs
+ENV grpc-web_import_style=commonjs
 ENV mode=grpcwebtext
 VOLUME /protofile
 ENV protofile=echo.proto
@@ -42,4 +43,4 @@ CMD rm -rf $output && \
   -I=/protofile \
   /protofile/$protofile \
   --js_out=import_style=$import_style:$output \
-  --grpc-web_out=import_style=$import_style,mode=$mode:$output
+  --grpc-web_out=import_style=$grpc-web_import_style,mode=$mode:$output

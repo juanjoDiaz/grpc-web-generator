@@ -42,9 +42,11 @@ Defaults to `commonjs`.
 
 `import_style=commonjs`: The CommonJS style require() is also supported.
 
-`import_style=commonjs+dts`: (Experimental) In addition to above, a .d.ts typings file will also be generated for the protobuf messages and service stub.
+**Note: `commonjs+dts` and `typescript` only supported by `grpc-web_out` Use environments below:**
 
-`import_style=typescript`: (Experimental) The service stub will be generated in TypeScript.
+`grpc-web_import_style=commonjs+dts`: (Experimental) In addition to above, a .d.ts typings file will also be generated for the protobuf messages and service stub.
+
+`grpc-web_import_style=typescript`: (Experimental) The service stub will be generated in TypeScript.
 
 #### mode
 For more information about the gRPC-Web wire format, please see the specification at [gRPC-web](https://github.com/grpc/grpc-web).
@@ -62,6 +64,12 @@ Defaults to `grpcwebtext`.
 - `Content-type: application/grpc-web+proto`
 - Payload are in the binary protobuf format.
 - Only unary calls are supported for now.
+
+## Build Docker image
+
+```bash
+docker build <path_to_Dockerfile_folder> -t juanjodiaz/grpc-web-builder
+```
 
 ## Generating the files
 
@@ -82,7 +90,7 @@ You can add a script to your NPM file like:
   ...
 
   "scripts": {
-    "grpc.generate": "docker run -v \"${MY_INCLUDES_FOLDER}:/protofile\" -e \"protofile=<MY_PROTO_FILE>.proto\" juanjodiaz/grpc-web-builder"
+    "grpc.generate": "docker run -v \"<MY_INCLUDES_FOLDER>:/protofile\" -e \"protofile=<MY_PROTO_FILE>.proto\" juanjodiaz/grpc-web-builder"
   },
 
   ...
