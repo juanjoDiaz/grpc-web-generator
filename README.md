@@ -44,9 +44,9 @@ Defaults to `commonjs`.
 
 **Note: `commonjs+dts` and `typescript` only supported by `grpc-web_out` Use environments below:**
 
-`grpc-web_import_style=commonjs+dts`: (Experimental) In addition to above, a .d.ts typings file will also be generated for the protobuf messages and service stub.
+`grpc_web_import_style=commonjs+dts`: (Experimental) In addition to above, a .d.ts typings file will also be generated for the protobuf messages and service stub.
 
-`grpc-web_import_style=typescript`: (Experimental) The service stub will be generated in TypeScript.
+`grpc_web_import_style=typescript`: (Experimental) The service stub will be generated in TypeScript.
 
 #### mode
 For more information about the gRPC-Web wire format, please see the specification at [gRPC-web](https://github.com/grpc/grpc-web).
