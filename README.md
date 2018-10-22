@@ -42,7 +42,7 @@ Defaults to `commonjs`.
 
 `import_style=commonjs`: The CommonJS style require() is also supported.
 
-**Note: `commonjs+dts` and `typescript` only supported by `grpc-web_out` Use environments below:**
+**Note: `commonjs+dts` and `typescript` are only supported by the `grpc-web_out` plugin. You should use an extra environment variable as shown bellow:**
 
 `grpc_web_import_style=commonjs+dts`: (Experimental) In addition to above, a .d.ts typings file will also be generated for the protobuf messages and service stub.
 
@@ -68,7 +68,7 @@ Defaults to `grpcwebtext`.
 ## Build Docker image
 
 ```bash
-docker build <path_to_Dockerfile_folder> -t juanjodiaz/grpc-web-builder
+docker build <path_to_this_repository> -t juanjodiaz/grpc-web-builder
 ```
 
 ## Generating the files
