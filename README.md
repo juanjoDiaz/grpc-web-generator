@@ -65,7 +65,17 @@ Defaults to `grpcwebtext`.
 - Payload are in the binary protobuf format.
 - Only unary calls are supported for now.
 
-## Build Docker image
+## How to get the image
+
+### From DockerHub
+
+The image is available at [Docker Hub](https://hub.docker.com/r/juanjodiaz/grpc-web-generator/)
+
+```sh
+docker pull juanjodiaz/grpc-web-builder
+```
+
+### Build from source
 
 ```bash
 docker build <path_to_this_repository> -t juanjodiaz/grpc-web-builder
