@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04 AS builder
 
 ARG MAKEFLAGS=-j8
 
@@ -11,23 +11,25 @@ RUN apt-get update && apt-get install -y \
 
 RUN git clone https://github.com/grpc/grpc-web /github/grpc-web
 
+WORKDIR /github/grpc-web
+
+RUN git checkout tags/1.0.0
+
 ## Install gRPC and protobuf
 
-RUN cd /github/grpc-web && \
-  ./scripts/init_submodules.sh
+RUN ./scripts/init_submodules.sh
 
-RUN cd /github/grpc-web/third_party/grpc && \
-  make && make install
+RUN cd third_party/grpc && make && make install
 
-RUN cd /github/grpc-web/third_party/grpc/third_party/protobuf && \
-  make install
+RUN cd third_party/grpc/third_party/protobuf && make install
 
 ## Install all the gRPC-web plugin
 
-RUN cd /github/grpc-web && \
-  make install-plugin
+RUN make install-plugin
 
-RUN rm -rf /github
+FROM ubuntu:18.04
+
+COPY --from=builder /usr/local/bin /usr/local/bin
 
 ## Create the gRPC client
 ENV import_style=commonjs
