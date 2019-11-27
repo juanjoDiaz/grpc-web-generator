@@ -13,7 +13,7 @@ RUN git clone https://github.com/grpc/grpc-web /github/grpc-web
 
 WORKDIR /github/grpc-web
 
-RUN git checkout tags/1.0.6
+RUN git checkout tags/1.0.7
 
 ## Install gRPC and protobuf
 

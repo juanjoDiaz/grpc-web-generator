@@ -100,7 +100,7 @@ You can add a script to your NPM file like:
   ...
 
   "scripts": {
-    "grpc.generate": "docker run -v \"<MY_INCLUDES_FOLDER>:/protofile\" -e \"protofile=<MY_PROTO_FILE>.proto\" juanjodiaz/grpc-web-generator:1.0.6"
+    "grpc.generate": "docker run -v \"<MY_INCLUDES_FOLDER>:/protofile\" -e \"protofile=<MY_PROTO_FILE>.proto\" juanjodiaz/grpc-web-generator:1.0.7"
   },
 
   ...
