@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 AS builder
+FROM ubuntu:20.04 AS builder
 
 ARG MAKEFLAGS=-j8
 
@@ -27,7 +27,7 @@ RUN cd third_party/grpc/third_party/protobuf && make install
 
 RUN make install-plugin
 
-FROM ubuntu:18.04
+FROM ubuntu:20.04
 
 COPY --from=builder /usr/local/bin /usr/local/bin
 
