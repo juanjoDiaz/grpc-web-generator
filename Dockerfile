@@ -13,7 +13,7 @@ RUN git clone https://github.com/grpc/grpc-web /github/grpc-web
 
 WORKDIR /github/grpc-web
 
-RUN git checkout tags/1.1.0
+RUN git checkout tags/1.2.0
 
 ## Install gRPC and protobuf
 
@@ -39,9 +39,7 @@ VOLUME /protofile
 ENV protofile=echo.proto
 ENV output=/protofile/generated
 
-CMD rm -rf $output && \
-  mkdir $output && \
-  protoc \
+CMD protoc \
   -I=/protofile \
   /protofile/$protofile \
   --js_out=import_style=$import_style:$output \
