@@ -30,6 +30,7 @@ RUN make install-plugin
 FROM ubuntu:20.04
 
 COPY --from=builder /usr/local/bin /usr/local/bin
+COPY --from=builder /usr/local/include /usr/local/include
 
 ## Create the gRPC client
 ENV import_style=commonjs
